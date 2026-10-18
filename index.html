@@ -1,0 +1,1620 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mening Madinam uchun ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            font-family:
+                "Plus Jakarta Sans",
+                -apple-system,
+                BlinkMacSystemFont,
+                sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart-bubble {
+            position: absolute;
+            bottom: -10vh;
+            animation: floatUp linear infinite;
+            opacity: 0.35;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.45;
+            }
+
+            80% {
+                opacity: 0.45;
+            }
+
+            100% {
+                transform: translateY(-115vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .pop-anim {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(244, 63, 94, 0.45);
+            }
+
+            50% {
+                box-shadow: 0 0 35px rgba(244, 63, 94, 0.75);
+            }
+        }
+
+        .evasive-btn {
+            transition: left 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                top 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.15s ease;
+            will-change: left, top;
+        }
+
+        @keyframes shakeX {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+
+        .animate-shake {
+            animation: shakeX 0.35s ease-in-out;
+        }
+
+        /* Bulutlar animatsiyasi va Chek tushishi */
+        @keyframes cloudFloatLeft {
+            0% {
+                transform: translateX(0) scale(1);
+                opacity: 0.95;
+            }
+            100% {
+                transform: translateX(-55px) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes cloudFloatRight {
+            0% {
+                transform: translateX(0) scale(1);
+                opacity: 0.95;
+            }
+            100% {
+                transform: translateX(55px) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes loveRevealAnim {
+            0% {
+                transform: scale(0.3) translateY(20px);
+                opacity: 0;
+                filter: blur(8px);
+            }
+            60% {
+                transform: scale(1.08) translateY(-4px);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        @keyframes receiptRollDown {
+            0% {
+                transform: translateY(-25px) scaleY(0.6);
+                opacity: 0;
+            }
+            65% {
+                transform: translateY(4px) scaleY(1.02);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        .anim-cloud-left {
+            animation: cloudFloatLeft 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .anim-cloud-right {
+            animation: cloudFloatRight 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .anim-love-reveal {
+            animation: loveRevealAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .anim-receipt {
+            animation: receiptRollDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-rose-100 via-pink-50 to-purple-100 min-h-screen text-slate-800 flex items-center justify-center p-4 relative overflow-x-hidden selection:bg-pink-300">
+    <div class="hearts-bg" id="heartsContainer"></div>
+
+    <main class="w-full max-w-sm mx-auto relative z-10">
+        <div id="questionCard"
+            class="pop-anim bg-gradient-to-b from-rose-50/95 via-pink-50/95 to-rose-100/90 backdrop-blur-2xl border border-rose-200/80 shadow-2xl shadow-rose-400/20 rounded-3xl p-6 sm:p-7 text-center relative transition-all duration-300">
+            <div
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/90 border border-rose-200/90 text-rose-700 text-xs font-semibold tracking-wide uppercase mb-3 shadow-sm">
+                <span>💌</span>
+                <span>Mening Madinam uchun</span>
+            </div>
+
+            <div class="relative w-44 h-44 mx-auto mb-4 flex items-center justify-center">
+                <div class="absolute inset-0 bg-pink-200/60 rounded-full blur-xl transform scale-90"></div>
+                <img id="mainIllustration"
+                    src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYxcXN4bjRuaWc5eGszOWlydmp1bmNxdWZ2OGVraWZ5ZjN2M3E0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                    alt="Cute asking sticker"
+                    class="relative w-40 h-40 object-contain drop-shadow-md transition-transform duration-300 transform hover:scale-105" />
+            </div>
+
+            <h1 class="text-2xl font-extrabold text-rose-950 tracking-tight leading-snug mb-2">
+                Mening Madinam, men bilan uchrashuvga chiqasanmi? ✨
+            </h1>
+
+            <p id="subNotice"
+                class="text-rose-800/85 text-sm mb-6 px-2 min-h-[38px] flex items-center justify-center transition-all duration-200 font-medium">
+                Kichik qahva va maroqli suhbat uchun nima deysan? ☕
+            </p>
+
+            <div class="w-full min-h-[120px] flex flex-col items-center justify-start gap-3" id="buttonsWrapper">
+                <button id="yesBtn" type="button"
+                    class="pulse-glow w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-lg shadow-lg shadow-pink-500/30 transition-all duration-200 flex items-center justify-center gap-2 z-20 cursor-pointer">
+                    <span>Ha, albatta! 💖</span>
+                </button>
+
+                <div id="secondaryButtonsRow" class="w-full grid grid-cols-2 gap-2.5 min-h-[48px]">
+                    <button id="maybeBtn" type="button"
+                        class="evasive-btn w-full py-3.5 px-3 rounded-2xl bg-rose-100/80 hover:bg-rose-200/80 active:bg-rose-200 text-rose-900 font-semibold text-sm border border-rose-200/90 shadow-sm shadow-rose-400/10 transition-all duration-200 touch-none select-none flex items-center justify-center cursor-pointer">
+                        Bilmadim 🤔
+                    </button>
+
+                    <button id="noBtn" type="button"
+                        class="evasive-btn w-full py-3.5 px-3 rounded-2xl bg-white/75 hover:bg-rose-50 active:bg-rose-100 text-rose-700 hover:text-rose-900 font-semibold text-sm border border-rose-200/80 shadow-sm transition-all duration-200 touch-none select-none flex items-center justify-center cursor-pointer">
+                        Yo'q 🙈
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 pt-3 border-t border-rose-200/70 flex items-center justify-center gap-2 text-xs text-rose-700/80">
+                <span class="inline-block w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                <span>Javobingni intiqlik bilan kutyapman</span>
+            </div>
+        </div>
+
+        <!-- 2-QADAM: Kunni tanlash -->
+        <div id="dateCard"
+            class="hidden pop-anim bg-gradient-to-b from-rose-50/95 via-pink-50/95 to-rose-100/90 backdrop-blur-2xl border border-rose-200/80 shadow-2xl shadow-rose-400/20 rounded-3xl p-6 sm:p-7 text-center relative transition-all duration-300">
+            <div
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/90 border border-rose-200/90 text-rose-700 text-xs font-semibold tracking-wide uppercase mb-3 shadow-sm">
+                <span>🗓️</span>
+                <span>1-qadam: Kunni tanlaymiz</span>
+            </div>
+
+            <div class="relative w-40 h-40 mx-auto mb-3 flex items-center justify-center">
+                <div class="absolute inset-0 bg-pink-200/60 rounded-full blur-xl transform scale-90"></div>
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW81OTR1cWRuNHpkdzBkcDZtdmdqZWVrN2p1cmNndWZ2OGVraWZ5ZjN2M3E0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif"
+                    alt="Cute celebration cat" class="relative w-36 h-36 object-contain drop-shadow-md" />
+            </div>
+
+            <h2 class="text-2xl font-black text-rose-950 tracking-tight leading-snug mb-1">
+                Qaysi kuni ko'rishamiz? ✨
+            </h2>
+
+            <p class="text-rose-800/85 text-xs sm:text-sm mb-5 font-medium leading-relaxed">
+                O'zingga eng ma'qul kunni tanla:
+            </p>
+
+            <div class="space-y-2.5 mb-2 text-left" id="dateButtonsWrapper">
+                <!-- Bosiladigan yagona Payshanba tugmasi (boshida tanlanmagan) -->
+                <button type="button" id="thursdayBtn"
+                    class="w-full py-3.5 px-4 rounded-2xl border text-sm font-semibold transition-all bg-white/90 hover:bg-rose-50 text-rose-900 border-rose-200/90 shadow-sm flex items-center justify-between cursor-pointer active:scale-95">
+                    <span class="flex items-center gap-2">
+                        <span>🌙</span>
+                        <span>Payshanba kuni</span>
+                    </span>
+                    <span id="thursdayBadge"
+                        class="hidden bg-white/25 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold">
+                        Tanlandi ✓
+                    </span>
+                </button>
+
+                <!-- Qochib ketadigan, bosib bo'lmaydigan variantlar -->
+                <div id="fakeDatesRow" class="w-full grid grid-cols-2 gap-2 min-h-[46px]">
+                    <button type="button" id="fakeDontKnowBtn"
+                        class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                        Bilmadim 🤔
+                    </button>
+                    <button type="button" id="fakeYouDecideBtn"
+                        class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                        O'ziz hal qiling 🙈
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hazil bildirishnoma matni -->
+            <p id="dateNotice"
+                class="text-xs text-rose-600 font-semibold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center">
+            </p>
+
+            <!-- Tasdiqlash tugmasi -->
+            <button id="nextToPlanBtn" type="button"
+                class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Tasdiqlash ✨</span>
+            </button>
+        </div>
+
+        <!-- 2-QADAM: Reja (Ovqatlanamiz) -->
+        <div id="planCard"
+            class="hidden pop-anim bg-gradient-to-b from-rose-50/95 via-pink-50/95 to-rose-100/90 backdrop-blur-2xl border border-rose-200/80 shadow-2xl shadow-rose-400/20 rounded-3xl p-6 sm:p-7 text-center relative transition-all duration-300">
+            <div
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/90 border border-rose-200/90 text-rose-700 text-xs font-semibold tracking-wide uppercase mb-3 shadow-sm">
+                <span>🍽️</span>
+                <span>2-qadam: Reja</span>
+            </div>
+
+            <h2 class="text-2xl font-black text-rose-950 tracking-tight leading-snug mb-1">
+                Qayerga boramiz? ✨
+            </h2>
+
+            <p class="text-rose-800/85 text-xs sm:text-sm mb-5 font-medium leading-relaxed">
+                Rejani tanla:
+            </p>
+
+            <div class="space-y-2.5 mb-2 text-left" id="planButtonsWrapper">
+                <!-- Bosiladigan yagona Ovqatlanamiz tugmasi -->
+                <button type="button" id="eatBtn"
+                    class="w-full py-3.5 px-4 rounded-2xl border text-sm font-semibold transition-all bg-white/90 hover:bg-rose-50 text-rose-900 border-rose-200/90 shadow-sm flex items-center justify-between cursor-pointer active:scale-95">
+                    <span class="flex items-center gap-2">
+                        <span>🍽️</span>
+                        <span>Ovqatlanamiz</span>
+                    </span>
+                    <span id="eatBadge"
+                        class="hidden bg-white/25 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold">
+                        Tanlandi ✓
+                    </span>
+                </button>
+
+                <!-- Qochib ketadigan, bosib bo'lmaydigan variantlar -->
+                <div id="fakePlansRow" class="w-full grid grid-cols-2 gap-2 min-h-[46px]">
+                    <button type="button" id="evasiveCoffeeBtn"
+                        class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                        Kofe ichamiz ☕
+                    </button>
+                    <button type="button" id="evasiveNowhereBtn"
+                        class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                        Hech qayerga bormaymiz 🙅‍♀️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hazil bildirishnoma matni -->
+            <p id="planNotice"
+                class="text-xs text-rose-600 font-semibold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center">
+            </p>
+
+            <!-- Tasdiqlash tugmasi (Keyingi vaqt tanlash qadamiga o'tadi) -->
+            <button id="nextToTimeBtn" type="button"
+                class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Tasdiqlash ✨</span>
+            </button>
+
+            <div class="flex items-center justify-between mt-3 px-1 text-[11px]">
+                <button id="backToDateBtn" type="button"
+                    class="text-rose-700 hover:text-rose-950 font-semibold cursor-pointer underline">
+                    ⬅️ Ortga (kunni ko'rish)
+                </button>
+                <span class="text-rose-700/70">2-bosqich</span>
+            </div>
+        </div>
+
+        <!-- 3-QADAM: Vaqt tanlash -->
+        <div id="timeCard"
+            class="hidden pop-anim bg-gradient-to-b from-rose-50/95 via-pink-50/95 to-rose-100/90 backdrop-blur-2xl border border-rose-200/80 shadow-2xl shadow-rose-400/20 rounded-3xl p-6 sm:p-7 text-center relative transition-all duration-300">
+            <div
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/90 border border-rose-200/90 text-rose-700 text-xs font-semibold tracking-wide uppercase mb-3 shadow-sm">
+                <span>⏰</span>
+                <span>3-qadam: Vaqtni tanlaymiz</span>
+            </div>
+
+            <h2 class="text-2xl font-black text-rose-950 tracking-tight leading-snug mb-1">
+                Soat nechida ko'rishamiz? ✨
+            </h2>
+
+            <p class="text-rose-800/85 text-xs sm:text-sm mb-4 font-medium leading-relaxed">
+                O'zingga eng qulay vaqtni tanla:
+            </p>
+
+            <div class="space-y-3 mb-4 text-left">
+                <label class="block text-xs font-bold text-rose-900 uppercase tracking-wider ml-1">
+                    ⏰ Qulay vaqt:
+                </label>
+
+                <div class="space-y-2.5">
+                    <!-- Faqat 19:00 bosiladi va tanlanadi -->
+                    <button id="time19Btn" type="button"
+                        class="w-full py-3.5 px-4 rounded-2xl border text-sm font-semibold transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-900 border-rose-200/90 shadow-sm flex items-center justify-between cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-lg">🌙</span>
+                            <span>19:00</span>
+                        </div>
+                        <span id="time19Badge"
+                            class="hidden text-[11px] font-bold bg-white text-rose-600 px-2.5 py-0.5 rounded-full shadow-sm">
+                            Tanlandi ✨
+                        </span>
+                    </button>
+
+                    <!-- Qochib ketadigan va bosib bo'lmaydigan vaqtlar -->
+                    <div class="grid grid-cols-3 gap-2 relative min-h-[46px]">
+                        <button id="time18Btn" type="button"
+                            class="evasive-btn w-full py-2.5 px-2 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                            18:00 🌅
+                        </button>
+                        <button id="time20Btn" type="button"
+                            class="evasive-btn w-full py-2.5 px-2 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                            20:00 ✨
+                        </button>
+                        <button id="time2030Btn" type="button"
+                            class="evasive-btn w-full py-2.5 px-2 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                            20:30 🌃
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hazil bildirishnoma matni -->
+            <p id="timeNotice"
+                class="text-xs text-rose-600 font-semibold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center">
+            </p>
+
+            <!-- Tasdiqlash tugmasi (Keyingi eng muhim savolga o'tadi) -->
+            <button id="nextToLoveBtn" type="button"
+                class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Tasdiqlash ✨</span>
+            </button>
+
+            <div class="flex items-center justify-between mt-3 px-1 text-[11px]">
+                <button id="backToPlanBtn" type="button"
+                    class="text-rose-700 hover:text-rose-950 font-semibold cursor-pointer underline">
+                    ⬅️ Ortga (rejani ko'rish)
+                </button>
+                <span class="text-rose-700/70">3-bosqich</span>
+            </div>
+        </div>
+
+        <!-- 4-QADAM: Eng muhim savol (Meni sevasanmi?) -->
+        <div id="loveCard"
+            class="hidden pop-anim bg-gradient-to-b from-rose-50/95 via-pink-50/95 to-rose-100/90 backdrop-blur-2xl border border-rose-200/80 shadow-2xl shadow-rose-400/20 rounded-3xl p-6 sm:p-7 text-center relative transition-all duration-300">
+            <div
+                class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/90 border border-rose-200/90 text-rose-700 text-xs font-semibold tracking-wide uppercase mb-3 shadow-sm">
+                <span>💖</span>
+                <span>Eng muhim savol</span>
+            </div>
+
+            <!-- Savol qismi (Ha bosilganda bu qism yo'qolib, o'rniga bulutlar va chek chiqadi) -->
+            <div id="loveQuestionSection" class="transition-all duration-300">
+                <div class="relative w-36 h-36 mx-auto mb-3 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-pink-200/60 rounded-full blur-xl transform scale-90"></div>
+                    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ29vaGExMm5qc3psb252M2xoaHl0bHF3cnI0ZWRnb2M5ZzRhNDR5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IzXiddo2twMmdmU8Lv/giphy.gif"
+                        alt="Love cute sticker"
+                        class="relative w-32 h-32 object-contain drop-shadow-md transition-transform duration-300 transform hover:scale-105" />
+                </div>
+
+                <h2 class="text-2xl font-black text-rose-950 tracking-tight leading-snug mb-1">
+                    Meni sevasanmi? 🥰❤️
+                </h2>
+
+                <p class="text-rose-800/85 text-xs sm:text-sm mb-4 font-medium leading-relaxed">
+                    Yuragingdan javob ber... 🌸
+                </p>
+
+                <div class="space-y-3 mb-3">
+                    <!-- Faqat Ha bosiladi -->
+                    <button id="loveYesBtn" type="button"
+                        class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-base shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        <span>Ha, albatta! 🥰💖</span>
+                    </button>
+
+                    <!-- Qochib ketadigan va bosib bo'lmaydigan variantlar -->
+                    <div class="grid grid-cols-2 gap-2.5 relative min-h-[46px]">
+                        <button id="loveMaybeBtn" type="button"
+                            class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                            Bilmadim 🤔
+                        </button>
+                        <button id="loveNoBtn" type="button"
+                            class="evasive-btn w-full py-3 px-3 rounded-2xl border text-xs font-semibold text-center transition-all bg-white/85 hover:bg-rose-50 active:bg-rose-100 text-rose-800/80 border-rose-200/80 shadow-sm touch-none select-none flex items-center justify-center cursor-pointer">
+                            Yo'q 🙈
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hazil bildirishnoma matni -->
+                <p id="loveNotice"
+                    class="text-xs text-rose-600 font-semibold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center">
+                </p>
+            </div>
+
+            <!-- Bulutlar orasidan "Men ham seni sevaman!" chiqishi -->
+            <div id="cloudRevealSection" class="hidden relative py-5 overflow-hidden">
+                <div class="relative w-full min-h-[110px] flex items-center justify-center">
+                    <!-- Chap bulut -->
+                    <div id="leftCloud" class="absolute z-20 pointer-events-none text-6xl text-white/95 drop-shadow-md select-none transition-all">
+                        ☁️
+                    </div>
+                    <!-- O'ng bulut -->
+                    <div id="rightCloud" class="absolute z-20 pointer-events-none text-6xl text-pink-100/95 drop-shadow-md select-none transition-all">
+                        ☁️
+                    </div>
+                    <!-- Bulutlar orasidan chiquvchi yozuv -->
+                    <div id="loveRevealText" class="z-10 text-center opacity-0 scale-50 transition-all duration-700">
+                        <div class="text-4xl mb-1.5 animate-bounce">💖</div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-rose-950 tracking-tight drop-shadow-sm">
+                            Men ham seni sevaman! 🥰✨
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UCHRASHUV CHEKI (Receipt) -->
+            <div id="receiptSection" class="hidden space-y-3 pt-2 text-left">
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-rose-200/90 shadow-xl relative overflow-hidden">
+                    <!-- Chek sarlavhasi -->
+                    <div class="text-center pb-3 border-b border-dashed border-rose-300">
+                        <div class="text-[11px] font-bold text-rose-600 uppercase tracking-widest flex items-center justify-center gap-1.5">
+                            <span>🧾</span>
+                            <span>RASMIY UCHRASHUV CHEKI</span>
+                            <span>💖</span>
+                        </div>
+                        <div class="text-[10px] text-rose-400 mt-0.5 font-medium">№ LOVE-2026 • TASDIQLANGAN REJA</div>
+                    </div>
+
+                    <!-- Chek ma'lumotlari -->
+                    <div class="py-3 space-y-2 text-xs text-rose-950">
+                        <div class="flex justify-between items-center py-1 border-b border-rose-100/60">
+                            <span class="text-rose-600 font-medium">👤 Kimga:</span>
+                            <span class="font-bold text-rose-900">Mening Madinam 🥰</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1 border-b border-rose-100/60">
+                            <span class="text-rose-600 font-medium">🗓 Kuni:</span>
+                            <span id="receiptDay" class="font-bold text-rose-900">Payshanba kuni 🌙</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1 border-b border-rose-100/60">
+                            <span class="text-rose-600 font-medium">🍽 Rejamiz:</span>
+                            <span id="receiptPlan" class="font-bold text-rose-900">Ovqatlanamiz 🍽️</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1 border-b border-rose-100/60">
+                            <span class="text-rose-600 font-medium">⏰ Vaqti:</span>
+                            <span id="receiptTime" class="font-bold text-rose-900">19:00 🌙</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1 border-b border-rose-100/60">
+                            <span class="text-rose-600 font-medium">❤️ Muhabbat:</span>
+                            <span class="font-bold text-pink-600">Cheksiz (100%) ♾️</span>
+                        </div>
+                    </div>
+
+                    <!-- Chek pastki qismi -->
+                    <div class="pt-2 border-t border-dashed border-rose-300">
+                        <div class="flex justify-between items-center text-xs font-bold text-rose-950 py-1">
+                            <span>JAMI TO'LOV:</span>
+                            <span class="text-rose-600">1 ta shirin tabassum 😊</span>
+                        </div>
+                        <div class="text-[10px] text-emerald-600 font-semibold flex items-center justify-center gap-1 mt-1 bg-emerald-50 py-1 rounded-lg">
+                            <span>✅</span>
+                            <span>Holati: Ikkala tomon roziligi bilan tasdiqlandi</span>
+                        </div>
+
+                        <!-- Shtrix-kod ko'rinishi -->
+                        <div class="mt-3 pt-2 border-t border-rose-100 flex flex-col items-center">
+                            <div class="font-mono text-[9px] tracking-[5px] text-rose-400 select-none">
+                                ||| | || |||| | ||| ||||| |||| | |
+                            </div>
+                            <span class="text-[9px] text-rose-400/80 font-medium tracking-wider mt-0.5">MADINA & ELDOR • BIR UMRLIK BAXT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasdiqlash tugmasi -->
+                <a id="telegramSubmitBtn" href="#" target="_blank" rel="noopener noreferrer"
+                    class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 active:scale-95 text-white font-bold text-base shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer pulse-glow">
+                    <span>Tasdiqlash ✨</span>
+                </a>
+            </div>
+
+            <div class="flex items-center justify-between mt-3 px-1 text-[11px]">
+                <button id="backToTimeBtn" type="button"
+                    class="text-rose-700 hover:text-rose-950 font-semibold cursor-pointer underline">
+                    ⬅️ Ortga (vaqtni ko'rish)
+                </button>
+                <span class="text-rose-700/70">Eng muhim qadam 💖</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const TELEGRAM_USERNAME = "e_halikov";
+
+        const questionCard = document.getElementById("questionCard");
+        const dateCard = document.getElementById("dateCard");
+        const planCard = document.getElementById("planCard");
+        const timeCard = document.getElementById("timeCard");
+        const yesBtn = document.getElementById("yesBtn");
+        const maybeBtn = document.getElementById("maybeBtn");
+        const noBtn = document.getElementById("noBtn");
+        const subNotice = document.getElementById("subNotice");
+        const nextToPlanBtn = document.getElementById("nextToPlanBtn");
+        const backToDateBtn = document.getElementById("backToDateBtn");
+        const thursdayBtn = document.getElementById("thursdayBtn");
+        const thursdayBadge = document.getElementById("thursdayBadge");
+        const fakeDontKnowBtn = document.getElementById("fakeDontKnowBtn");
+        const fakeYouDecideBtn = document.getElementById("fakeYouDecideBtn");
+        const dateNotice = document.getElementById("dateNotice");
+
+        const eatBtn = document.getElementById("eatBtn");
+        const eatBadge = document.getElementById("eatBadge");
+        const evasiveCoffeeBtn = document.getElementById("evasiveCoffeeBtn");
+        const evasiveNowhereBtn = document.getElementById("evasiveNowhereBtn");
+        const planNotice = document.getElementById("planNotice");
+        const nextToTimeBtn = document.getElementById("nextToTimeBtn");
+        const backToPlanBtn = document.getElementById("backToPlanBtn");
+
+        const time19Btn = document.getElementById("time19Btn");
+        const time19Badge = document.getElementById("time19Badge");
+        const time18Btn = document.getElementById("time18Btn");
+        const time20Btn = document.getElementById("time20Btn");
+        const nextToLoveBtn = document.getElementById("nextToLoveBtn");
+        const loveCard = document.getElementById("loveCard");
+        const loveQuestionSection = document.getElementById("loveQuestionSection");
+        const cloudRevealSection = document.getElementById("cloudRevealSection");
+        const leftCloud = document.getElementById("leftCloud");
+        const rightCloud = document.getElementById("rightCloud");
+        const loveRevealText = document.getElementById("loveRevealText");
+        const receiptSection = document.getElementById("receiptSection");
+        const receiptDay = document.getElementById("receiptDay");
+        const receiptPlan = document.getElementById("receiptPlan");
+        const receiptTime = document.getElementById("receiptTime");
+        const loveYesBtn = document.getElementById("loveYesBtn");
+        const loveMaybeBtn = document.getElementById("loveMaybeBtn");
+        const loveNoBtn = document.getElementById("loveNoBtn");
+        const loveNotice = document.getElementById("loveNotice");
+        const backToTimeBtn = document.getElementById("backToTimeBtn");
+
+        const telegramSubmitBtn =
+            document.getElementById("telegramSubmitBtn");
+
+        let isThursdaySelected = false;
+        let isEatSelected = false;
+        let isTimeSelected = false;
+        let isLoveConfirmed = false;
+        let selectedDay = "Payshanba kuni 🌙";
+        let selectedPlan = "Ovqatlanamiz 🍽️";
+        let selectedTime = "19:00 🌙";
+
+        const noPhrases = [
+            "Yo'q 🙈",
+            "Aniqmi? 🥺",
+            "Yaxshilab o'yla 😉",
+            "Baribir bosolmaysan 😜",
+            "Iltimos deb so'rayman... 🌸",
+            "Faqat 'Ha' varianti bor! ✨",
+            "Qo'ling yetmaydi 😂",
+            "Taqdirga qarshi chiqma ❤️",
+            "Urinma, baribir qochaman 🏃‍♂️",
+            "Ha'ni bosaqol endi 🥰",
+        ];
+
+        const maybePhrases = [
+            "Bilmadim 🤔",
+            "O'ylab ko'r 💭",
+            "Ikkilanma 😊",
+            "Roziman deyaqol 🙈",
+            "Topolmaysan baribir 🏃‍♂️",
+            "Yurak nima deyapti? 💓",
+            "Ikkilanmasdan 'Ha'ni bos! ✨",
+            "Bilasanku o'zing ham 🥰",
+            "Ikkilanish yo'q! 💖",
+        ];
+
+        const noticeHints = [
+            "Qochib ketdi-yu! Yana urinib ko'rchi 🤭",
+            "Mening Madinam, faqat 'Ha' varianti bor 🥰",
+            "Ushlolmaysan, 'Ha' tugmasini bosaqol 💖",
+            "Ikkala tugma ham qochyapti-ku 😂",
+            "Mening Madinam uchun maxsus tayyorlangan ✨",
+            "'Ha' tugmasi tobora kattalashyapti! 🚀",
+        ];
+
+        let noAttempts = 0;
+        let maybeAttempts = 0;
+        let totalAttempts = 0;
+        let yesScale = 1;
+
+        function spawnFloatingHearts() {
+            const container = document.getElementById("heartsContainer");
+            const icons = ["💖", "🌸", "✨", "💕", "🌷", "🤍"];
+
+            for (let i = 0; i < 16; i++) {
+                const span = document.createElement("span");
+                span.className = "heart-bubble";
+                span.textContent =
+                    icons[Math.floor(Math.random() * icons.length)];
+                span.style.left = Math.random() * 95 + "vw";
+                span.style.fontSize = Math.random() * 16 + 14 + "px";
+                span.style.animationDuration = Math.random() * 6 + 7 + "s";
+                span.style.animationDelay = Math.random() * 5 + "s";
+                container.appendChild(span);
+            }
+        }
+        spawnFloatingHearts();
+
+        function moveEvasiveButton(btn) {
+            totalAttempts++;
+
+            // Haptic feedback for mobile phones (if supported)
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate(40);
+                } catch (err) { }
+            }
+
+            if (btn === noBtn) {
+                noAttempts++;
+                const phraseIndex = Math.min(noAttempts, noPhrases.length - 1);
+                noBtn.textContent = noPhrases[phraseIndex];
+            } else if (btn === maybeBtn) {
+                maybeAttempts++;
+                const phraseIndex = Math.min(maybeAttempts, maybePhrases.length - 1);
+                maybeBtn.textContent = maybePhrases[phraseIndex];
+            }
+
+            // Smoothly expand 'Ha' button
+            yesScale = Math.min(yesScale + 0.07, 1.45);
+            yesBtn.style.transform = `scale(${yesScale})`;
+
+            // Playful message hints
+            subNotice.textContent =
+                noticeHints[(totalAttempts - 1) % noticeHints.length];
+            subNotice.classList.add("text-rose-700", "font-bold");
+
+            // If first time evading, lock current coordinates so transition doesn't jump from (0,0)
+            if (btn.style.position !== "absolute") {
+                const startX = btn.offsetLeft;
+                const startY = btn.offsetTop;
+                btn.style.left = `${startX}px`;
+                btn.style.top = `${startY}px`;
+                btn.style.position = "absolute";
+                btn.style.width = "auto";
+                btn.style.minWidth = "110px";
+                btn.style.zIndex = "40";
+                btn.style.boxShadow =
+                    "0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+                void btn.offsetWidth; // Force reflow
+            }
+
+            const cardRect = questionCard.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            const yesRect = yesBtn.getBoundingClientRect();
+
+            const btnW = btnRect.width || 110;
+            const btnH = btnRect.height || 44;
+            const pad = 14;
+
+            const minX = pad;
+            const maxX = Math.max(minX, cardRect.width - btnW - pad);
+            const minY = pad;
+            const maxY = Math.max(minY, cardRect.height - btnH - pad);
+
+            const yesTopInCard = yesRect.top - cardRect.top;
+            const yesBottomInCard = yesRect.bottom - cardRect.top;
+
+            const currX = parseFloat(btn.style.left) || btn.offsetLeft;
+            const currY = parseFloat(btn.style.top) || btn.offsetTop;
+
+            const otherBtn = btn === noBtn ? maybeBtn : noBtn;
+            const otherIsAbsolute = otherBtn.style.position === "absolute";
+            const otherX = otherIsAbsolute
+                ? parseFloat(otherBtn.style.left) || otherBtn.offsetLeft
+                : -999;
+            const otherY = otherIsAbsolute
+                ? parseFloat(otherBtn.style.top) || otherBtn.offsetTop
+                : -999;
+
+            let targetX = currX;
+            let targetY = currY;
+            let found = false;
+
+            // Pick a new spot safely away from the touch, not overlapping yesBtn or the other button
+            for (let i = 0; i < 35; i++) {
+                const randX =
+                    Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                const randY =
+                    Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+                // Ensure it moves far enough from current spot so finger misses it
+                const distFromCurrent = Math.hypot(
+                    randX - currX,
+                    randY - currY
+                );
+                if (distFromCurrent < 85) continue;
+
+                // Avoid overlapping with YES button (with safety margin)
+                const overlapsYes =
+                    randY + btnH > yesTopInCard - 12 &&
+                    randY < yesBottomInCard + 12;
+                if (overlapsYes) continue;
+
+                // Avoid landing right on top of the other floating button
+                if (otherIsAbsolute) {
+                    const distFromOther = Math.hypot(
+                        randX - otherX,
+                        randY - otherY
+                    );
+                    if (distFromOther < 65) continue;
+                }
+
+                targetX = randX;
+                targetY = randY;
+                found = true;
+                break;
+            }
+
+            if (!found) {
+                targetX = Math.min(
+                    maxX,
+                    Math.max(minX, (cardRect.width - btnW) / 2)
+                );
+                targetY =
+                    currY > yesTopInCard
+                        ? Math.max(minY, yesTopInCard - btnH - 18)
+                        : Math.min(maxY, yesBottomInCard + 18);
+            }
+
+            btn.style.left = `${targetX}px`;
+            btn.style.top = `${targetY}px`;
+        }
+
+        function setupEvasiveButton(btn) {
+            const onEvade = function (e) {
+                if (e && e.cancelable) {
+                    e.preventDefault();
+                }
+                if (e) {
+                    e.stopPropagation();
+                }
+                moveEvasiveButton(btn);
+            };
+
+            // Mobile touch optimization: touchstart fires instantly before tap/click
+            btn.addEventListener("touchstart", onEvade, { passive: false });
+            btn.addEventListener("touchmove", onEvade, { passive: false });
+            btn.addEventListener("pointerdown", onEvade);
+
+            // Desktop hover & click fallback
+            btn.addEventListener("mouseenter", onEvade);
+            btn.addEventListener("click", onEvade);
+        }
+
+        setupEvasiveButton(noBtn);
+        setupEvasiveButton(maybeBtn);
+
+        function launchConfettiCelebration() {
+            const end = Date.now() + 3000;
+            const colors = [
+                "#ec4899",
+                "#f43f5e",
+                "#a855f7",
+                "#fbbf24",
+                "#38bdf8",
+            ];
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.7 },
+                    colors: colors,
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.7 },
+                    colors: colors,
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+
+            confetti({
+                particleCount: 80,
+                spread: 100,
+                origin: { y: 0.6 },
+                colors: colors,
+            });
+        }
+
+        // 1-qadamdan 2-qadamga (Kunni tanlashga) o'tish
+        yesBtn.addEventListener("click", function () {
+            launchConfettiCelebration();
+
+            questionCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                questionCard.classList.add("hidden");
+                dateCard.classList.remove("hidden");
+                dateCard.classList.add("pop-anim");
+            }, 300);
+        });
+
+        // Qochib ketadigan tugmalar mantig'i (Bosib bo'lmaydi, harakat qilganda qochadi)
+        function moveDateEvasiveButton(btn) {
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate(35);
+                } catch (e) {}
+            }
+
+            const hints = [
+                "Qochib ketdi-yu! Payshanbani tanlang 🤭",
+                "Bu tugma ishlamaydi, Payshanba oqshomi kutmoqda 🥰",
+                "Urinma, faqat Payshanba kuni bo'shman 😜",
+                "Baribir Payshanbani tanlaysan ✨",
+                "Qo'ling yetmayapti-ku 😂",
+            ];
+            dateNotice.textContent =
+                hints[Math.floor(Math.random() * hints.length)];
+            dateNotice.className =
+                "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+
+            if (btn.style.position !== "absolute") {
+                const startX = btn.offsetLeft;
+                const startY = btn.offsetTop;
+                btn.style.left = `${startX}px`;
+                btn.style.top = `${startY}px`;
+                btn.style.position = "absolute";
+                btn.style.width = "auto";
+                btn.style.minWidth = "110px";
+                btn.style.zIndex = "40";
+                btn.style.boxShadow =
+                    "0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+                void btn.offsetWidth;
+            }
+
+            const cardRect = dateCard.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            const thursdayRect = thursdayBtn.getBoundingClientRect();
+            const nextRect = nextToPlanBtn.getBoundingClientRect();
+
+            const btnW = btnRect.width || 110;
+            const btnH = btnRect.height || 44;
+            const pad = 12;
+
+            const minX = pad;
+            const maxX = Math.max(minX, cardRect.width - btnW - pad);
+            const minY = pad;
+            const maxY = Math.max(minY, cardRect.height - btnH - pad);
+
+            const thursTop = thursdayRect.top - cardRect.top;
+            const thursBottom = thursdayRect.bottom - cardRect.top;
+            const nextTop = nextRect.top - cardRect.top;
+            const nextBottom = nextRect.bottom - cardRect.top;
+
+            const currX = parseFloat(btn.style.left) || btn.offsetLeft;
+            const currY = parseFloat(btn.style.top) || btn.offsetTop;
+
+            let targetX = currX;
+            let targetY = currY;
+            let found = false;
+
+            for (let i = 0; i < 35; i++) {
+                const randX =
+                    Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                const randY =
+                    Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+                if (Math.hypot(randX - currX, randY - currY) < 75) continue;
+
+                // thursdayBtn va nextToPlanBtn ustiga tushib qolmaslik
+                const overlapsThurs =
+                    randY + btnH > thursTop - 10 && randY < thursBottom + 10;
+                const overlapsNext =
+                    randY + btnH > nextTop - 10 && randY < nextBottom + 10;
+                if (overlapsThurs || overlapsNext) continue;
+
+                targetX = randX;
+                targetY = randY;
+                found = true;
+                break;
+            }
+
+            if (!found) {
+                targetX = Math.min(
+                    maxX,
+                    Math.max(minX, (cardRect.width - btnW) / 2)
+                );
+                targetY =
+                    currY > thursBottom
+                        ? Math.max(minY, thursTop - btnH - 16)
+                        : Math.min(maxY, thursBottom + 16);
+            }
+
+            btn.style.left = `${targetX}px`;
+            btn.style.top = `${targetY}px`;
+        }
+
+        function setupDateEvasive(btn) {
+            const onEvade = function (e) {
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
+                moveDateEvasiveButton(btn);
+            };
+
+            btn.addEventListener("touchstart", onEvade, { passive: false });
+            btn.addEventListener("touchmove", onEvade, { passive: false });
+            btn.addEventListener("pointerdown", onEvade);
+            btn.addEventListener("mouseenter", onEvade);
+            btn.addEventListener("click", onEvade);
+        }
+
+        if (fakeDontKnowBtn) setupDateEvasive(fakeDontKnowBtn);
+        if (fakeYouDecideBtn) setupDateEvasive(fakeYouDecideBtn);
+
+        // Faqat Payshanba bosiladi va tanlanadi
+        thursdayBtn.addEventListener("click", function () {
+            isThursdaySelected = true;
+            selectedDay = "Payshanba kuni 🌙";
+
+            // Tanlangan holatga o'tkazish
+            thursdayBtn.className =
+                "w-full py-3.5 px-4 rounded-2xl border text-sm font-bold transition-all bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-md shadow-pink-500/25 flex items-center justify-between cursor-pointer active:scale-95";
+            if (thursdayBadge) thursdayBadge.classList.remove("hidden");
+
+            // Bayram salyuti
+            confetti({
+                particleCount: 30,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ["#ec4899", "#f43f5e", "#fbbf24"],
+            });
+
+            dateNotice.textContent =
+                "Ajoyib tanlov! Payshanba kuni ko'rishamiz 🥰";
+            dateNotice.className =
+                "text-xs text-rose-700 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center";
+
+            nextToPlanBtn.classList.add("pulse-glow");
+            updateTelegramLink();
+        });
+
+        // 2-qadamdan 3-qadamga (Reja va taomlarga) o'tish
+        nextToPlanBtn.addEventListener("click", function () {
+            if (!isThursdaySelected) {
+                // Agar Payshanba bosilmagan bo'lsa, ogohlantirish
+                thursdayBtn.classList.remove("animate-shake");
+                void thursdayBtn.offsetWidth;
+                thursdayBtn.classList.add("animate-shake");
+
+                dateNotice.textContent =
+                    "Iltimos, avval kunni tanlang (faqat Payshanba) 😉";
+                dateNotice.className =
+                    "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+                return;
+            }
+
+            launchConfettiCelebration();
+
+            dateCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                dateCard.classList.add("hidden");
+                dateCard.classList.remove("opacity-0", "scale-95");
+                planCard.classList.remove("hidden");
+                planCard.classList.add("pop-anim");
+                updateTelegramLink();
+            }, 250);
+        });
+
+        // 3-qadamdan 2-qadamga (Ortga) qaytish
+        backToDateBtn.addEventListener("click", function () {
+            planCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                planCard.classList.add("hidden");
+                planCard.classList.remove("opacity-0", "scale-95");
+                dateCard.classList.remove("hidden");
+                dateCard.classList.add("pop-anim");
+            }, 250);
+        });
+
+        // 2-QADAM: Reja kartochkasidagi qochib ketadigan tugmalar (Kofe, Hech qayerga bormaymiz)
+        function movePlanEvasiveButton(btn) {
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate(35);
+                } catch (e) {}
+            }
+
+            const hints = [
+                "Qochib ketdi-yu! Faqat ovqatlanish varianti bor 🤭",
+                "Kofe bilan qorin to'ymaydi, ovqatlanamiz 🥰",
+                "Hech qayerga bormaslik yo'q! Birga ovqatlanamiz 😜",
+                "Urinma, albatta ovqatlanamiz 🍕🍽️",
+                "Qo'ling yetmayapti-ku 😂",
+            ];
+            planNotice.textContent =
+                hints[Math.floor(Math.random() * hints.length)];
+            planNotice.className =
+                "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+
+            if (btn.style.position !== "absolute") {
+                const startX = btn.offsetLeft;
+                const startY = btn.offsetTop;
+                btn.style.left = `${startX}px`;
+                btn.style.top = `${startY}px`;
+                btn.style.position = "absolute";
+                btn.style.width = "auto";
+                btn.style.minWidth = "120px";
+                btn.style.zIndex = "40";
+                btn.style.boxShadow =
+                    "0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+                void btn.offsetWidth;
+            }
+
+            const cardRect = planCard.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            const eatRect = eatBtn.getBoundingClientRect();
+            const nextRect = nextToTimeBtn.getBoundingClientRect();
+
+            const btnW = btnRect.width || 120;
+            const btnH = btnRect.height || 44;
+            const pad = 12;
+
+            const minX = pad;
+            const maxX = Math.max(minX, cardRect.width - btnW - pad);
+            const minY = pad;
+            const maxY = Math.max(minY, cardRect.height - btnH - pad);
+
+            const eatTop = eatRect.top - cardRect.top;
+            const eatBottom = eatRect.bottom - cardRect.top;
+            const nextTop = nextRect.top - cardRect.top;
+            const nextBottom = nextRect.bottom - cardRect.top;
+
+            const currX = parseFloat(btn.style.left) || btn.offsetLeft;
+            const currY = parseFloat(btn.style.top) || btn.offsetTop;
+
+            let targetX = currX;
+            let targetY = currY;
+            let found = false;
+
+            for (let i = 0; i < 35; i++) {
+                const randX =
+                    Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                const randY =
+                    Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+                if (Math.hypot(randX - currX, randY - currY) < 75) continue;
+
+                const overlapsEat =
+                    randY + btnH > eatTop - 10 && randY < eatBottom + 10;
+                const overlapsNext =
+                    randY + btnH > nextTop - 10 && randY < nextBottom + 10;
+                if (overlapsEat || overlapsNext) continue;
+
+                targetX = randX;
+                targetY = randY;
+                found = true;
+                break;
+            }
+
+            if (!found) {
+                targetX = Math.min(
+                    maxX,
+                    Math.max(minX, (cardRect.width - btnW) / 2)
+                );
+                targetY =
+                    currY > eatBottom
+                        ? Math.max(minY, eatTop - btnH - 16)
+                        : Math.min(maxY, eatBottom + 16);
+            }
+
+            btn.style.left = `${targetX}px`;
+            btn.style.top = `${targetY}px`;
+        }
+
+        function setupPlanEvasive(btn) {
+            const onEvade = function (e) {
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
+                movePlanEvasiveButton(btn);
+            };
+
+            btn.addEventListener("touchstart", onEvade, { passive: false });
+            btn.addEventListener("touchmove", onEvade, { passive: false });
+            btn.addEventListener("pointerdown", onEvade);
+            btn.addEventListener("mouseenter", onEvade);
+            btn.addEventListener("click", onEvade);
+        }
+
+        if (evasiveCoffeeBtn) setupPlanEvasive(evasiveCoffeeBtn);
+        if (evasiveNowhereBtn) setupPlanEvasive(evasiveNowhereBtn);
+
+        // Faqat Ovqatlanamiz bosiladi va tanlanadi
+        eatBtn.addEventListener("click", function () {
+            isEatSelected = true;
+            selectedPlan = "Ovqatlanamiz 🍽️";
+
+            eatBtn.className =
+                "w-full py-3.5 px-4 rounded-2xl border text-sm font-bold transition-all bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-md shadow-pink-500/25 flex items-center justify-between cursor-pointer active:scale-95";
+            if (eatBadge) eatBadge.classList.remove("hidden");
+
+            confetti({
+                particleCount: 30,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ["#ec4899", "#f43f5e", "#fbbf24"],
+            });
+
+            planNotice.textContent =
+                "Ajoyib! Mazali taomlar yeb suhbatlashamiz 🥰";
+            planNotice.className =
+                "text-xs text-rose-700 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center";
+
+            nextToTimeBtn.classList.add("pulse-glow");
+            updateTelegramLink();
+        });
+
+        // 2-qadamdan 3-qadamga (Vaqt tanlashga) o'tish
+        nextToTimeBtn.addEventListener("click", function () {
+            if (!isEatSelected) {
+                eatBtn.classList.remove("animate-shake");
+                void eatBtn.offsetWidth;
+                eatBtn.classList.add("animate-shake");
+
+                planNotice.textContent =
+                    "Iltimos, avval rejani tanlang (Ovqatlanamiz) 😉";
+                planNotice.className =
+                    "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+                return;
+            }
+
+            launchConfettiCelebration();
+
+            planCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                planCard.classList.add("hidden");
+                planCard.classList.remove("opacity-0", "scale-95");
+                timeCard.classList.remove("hidden");
+                timeCard.classList.add("pop-anim");
+                updateTelegramLink();
+            }, 250);
+        });
+
+        // 3-qadamdan 2-qadamga (Ortga) qaytish
+        backToPlanBtn.addEventListener("click", function () {
+            timeCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                timeCard.classList.add("hidden");
+                timeCard.classList.remove("opacity-0", "scale-95");
+                planCard.classList.remove("hidden");
+                planCard.classList.add("pop-anim");
+            }, 250);
+        });
+
+        // 4-QADAM: Vaqt kartochkasidagi qochib ketadigan tugmalar (18:00, 20:00, 20:30)
+        function moveTimeEvasiveButton(btn) {
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate(35);
+                } catch (e) {}
+            }
+
+            const hints = [
+                "Qochib ketdi-yu! 19:00 eng qulay vaqt 🤭",
+                "Bu vaqtda bandmiz, faqat 19:00 oqshomi 🥰",
+                "Urinma, baribir 19:00 da ko'rishamiz 😜",
+                "19:00 eng romantik oqshom vaqti ✨",
+                "Qo'ling yetmayapti-ku 😂 Faqat 19:00!",
+            ];
+            timeNotice.textContent =
+                hints[Math.floor(Math.random() * hints.length)];
+            timeNotice.className =
+                "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+
+            if (btn.style.position !== "absolute") {
+                const startX = btn.offsetLeft;
+                const startY = btn.offsetTop;
+                btn.style.left = `${startX}px`;
+                btn.style.top = `${startY}px`;
+                btn.style.position = "absolute";
+                btn.style.width = "auto";
+                btn.style.minWidth = "95px";
+                btn.style.zIndex = "40";
+                btn.style.boxShadow =
+                    "0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+                void btn.offsetWidth;
+            }
+
+            const cardRect = timeCard.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            const time19Rect = time19Btn.getBoundingClientRect();
+            const nextRect = nextToLoveBtn.getBoundingClientRect();
+
+            const btnW = btnRect.width || 95;
+            const btnH = btnRect.height || 40;
+            const pad = 12;
+
+            const minX = pad;
+            const maxX = Math.max(minX, cardRect.width - btnW - pad);
+            const minY = pad;
+            // Evasive buttons will strictly stay above the bottom Next button
+            const nextTop = nextRect.top - cardRect.top;
+            const maxY = Math.max(minY, nextTop - btnH - 14);
+
+            const t19Top = time19Rect.top - cardRect.top;
+            const t19Bottom = time19Rect.bottom - cardRect.top;
+
+            const currX = parseFloat(btn.style.left) || btn.offsetLeft;
+            const currY = parseFloat(btn.style.top) || btn.offsetTop;
+
+            let targetX = currX;
+            let targetY = currY;
+            let found = false;
+
+            for (let i = 0; i < 35; i++) {
+                const randX =
+                    Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                const randY =
+                    Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+                if (Math.hypot(randX - currX, randY - currY) < 70) continue;
+
+                const overlaps19 =
+                    randY + btnH > t19Top - 10 && randY < t19Bottom + 10;
+                if (overlaps19) continue;
+
+                targetX = randX;
+                targetY = randY;
+                found = true;
+                break;
+            }
+
+            if (!found) {
+                targetX = Math.min(
+                    maxX,
+                    Math.max(minX, (cardRect.width - btnW) / 2)
+                );
+                targetY =
+                    currY > t19Bottom
+                        ? Math.max(minY, t19Top - btnH - 16)
+                        : Math.min(maxY, t19Bottom + 16);
+            }
+
+            btn.style.left = `${targetX}px`;
+            btn.style.top = `${targetY}px`;
+        }
+
+        function setupTimeEvasive(btn) {
+            const onEvade = function (e) {
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
+                moveTimeEvasiveButton(btn);
+            };
+
+            btn.addEventListener("touchstart", onEvade, { passive: false });
+            btn.addEventListener("touchmove", onEvade, { passive: false });
+            btn.addEventListener("pointerdown", onEvade);
+            btn.addEventListener("mouseenter", onEvade);
+            btn.addEventListener("click", onEvade);
+        }
+
+        if (time18Btn) setupTimeEvasive(time18Btn);
+        if (time20Btn) setupTimeEvasive(time20Btn);
+        if (time2030Btn) setupTimeEvasive(time2030Btn);
+
+        // Faqat 19:00 bosiladi va tanlanadi
+        time19Btn.addEventListener("click", function () {
+            isTimeSelected = true;
+            selectedTime = "19:00 🌙";
+
+            time19Btn.className =
+                "w-full py-3.5 px-4 rounded-2xl border text-sm font-bold transition-all bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-md shadow-pink-500/25 flex items-center justify-between cursor-pointer active:scale-95";
+            if (time19Badge) time19Badge.classList.remove("hidden");
+
+            confetti({
+                particleCount: 35,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ["#ec4899", "#f43f5e", "#fbbf24"],
+            });
+
+            timeNotice.textContent =
+                "Ajoyib tanlov! Soat 19:00 da ko'rishamiz 🥰";
+            timeNotice.className =
+                "text-xs text-rose-700 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center";
+
+            nextToLoveBtn.classList.add("pulse-glow");
+            updateTelegramLink();
+        });
+
+        // 3-qadamdan 4-qadamga (Eng muhim savolga) o'tish
+        nextToLoveBtn.addEventListener("click", function () {
+            if (!isTimeSelected) {
+                time19Btn.classList.remove("animate-shake");
+                void time19Btn.offsetWidth;
+                time19Btn.classList.add("animate-shake");
+
+                timeNotice.textContent =
+                    "Iltimos, avval vaqtni tanlang (faqat 19:00) 😉";
+                timeNotice.className =
+                    "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+                return;
+            }
+
+            launchConfettiCelebration();
+
+            timeCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                timeCard.classList.add("hidden");
+                timeCard.classList.remove("opacity-0", "scale-95");
+                loveCard.classList.remove("hidden");
+                loveCard.classList.add("pop-anim");
+            }, 250);
+        });
+
+        // 4-qadamdan 3-qadamga (Ortga) qaytish
+        backToTimeBtn.addEventListener("click", function () {
+            loveCard.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                loveCard.classList.add("hidden");
+                loveCard.classList.remove("opacity-0", "scale-95");
+
+                // Qayta kirganda savol blokini toza ochish
+                if (cloudRevealSection) cloudRevealSection.classList.add("hidden");
+                if (receiptSection) receiptSection.classList.add("hidden");
+                if (loveQuestionSection) loveQuestionSection.classList.remove("hidden", "opacity-0", "scale-95");
+                if (loveMaybeBtn) loveMaybeBtn.style.display = "";
+                if (loveNoBtn) loveNoBtn.style.display = "";
+
+                timeCard.classList.remove("hidden");
+                timeCard.classList.add("pop-anim");
+            }, 250);
+        });
+
+        // 4-QADAM: "Meni sevasanmi?" kartochkasidagi qochadigan tugmalar (Bilmadim, Yo'q)
+        function moveLoveEvasiveButton(btn) {
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate(35);
+                } catch (e) {}
+            }
+
+            const hints = [
+                "Qochib ketdi-yu! Faqat 'Ha' varianti bor 🥰",
+                "Yo'q deb bo'lmaydi, bilasanku 🙈",
+                "Ikkilanma, yuraging 'Ha' deyapti 💖",
+                "Baribir bosolmaysan 😜 Faqat 'Ha'!",
+                "Meni sevishingni bilaman-ku 🤭❤️",
+                "Faqat bitta to'g'ri javob bor: 'Ha'! ✨",
+            ];
+            loveNotice.textContent =
+                hints[Math.floor(Math.random() * hints.length)];
+            loveNotice.className =
+                "text-xs text-rose-600 font-bold min-h-[22px] flex items-center justify-center transition-all my-2 px-1 text-center animate-pulse";
+
+            if (btn.style.position !== "absolute") {
+                const startX = btn.offsetLeft;
+                const startY = btn.offsetTop;
+                btn.style.left = `${startX}px`;
+                btn.style.top = `${startY}px`;
+                btn.style.position = "absolute";
+                btn.style.width = "auto";
+                btn.style.minWidth = "110px";
+                btn.style.zIndex = "40";
+                btn.style.boxShadow =
+                    "0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+                void btn.offsetWidth;
+            }
+
+            const cardRect = loveCard.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            const yesRect = loveYesBtn.getBoundingClientRect();
+
+            const btnW = btnRect.width || 110;
+            const btnH = btnRect.height || 44;
+            const pad = 12;
+
+            const minX = pad;
+            const maxX = Math.max(minX, cardRect.width - btnW - pad);
+            const minY = pad;
+            const maxY = Math.max(minY, cardRect.height - btnH - pad - 60);
+
+            const yesTop = yesRect.top - cardRect.top;
+            const yesBottom = yesRect.bottom - cardRect.top;
+
+            const currX = parseFloat(btn.style.left) || btn.offsetLeft;
+            const currY = parseFloat(btn.style.top) || btn.offsetTop;
+
+            let targetX = currX;
+            let targetY = currY;
+            let found = false;
+
+            for (let i = 0; i < 35; i++) {
+                const randX =
+                    Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+                const randY =
+                    Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+                if (Math.hypot(randX - currX, randY - currY) < 75) continue;
+
+                const overlapsYes =
+                    randY + btnH > yesTop - 10 && randY < yesBottom + 10;
+                if (overlapsYes) continue;
+
+                targetX = randX;
+                targetY = randY;
+                found = true;
+                break;
+            }
+
+            if (!found) {
+                targetX = Math.min(
+                    maxX,
+                    Math.max(minX, (cardRect.width - btnW) / 2)
+                );
+                targetY =
+                    currY > yesBottom
+                        ? Math.max(minY, yesTop - btnH - 16)
+                        : Math.min(maxY, yesBottom + 16);
+            }
+
+            btn.style.left = `${targetX}px`;
+            btn.style.top = `${targetY}px`;
+        }
+
+        function setupLoveEvasive(btn) {
+            const onEvade = function (e) {
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
+                moveLoveEvasiveButton(btn);
+            };
+
+            btn.addEventListener("touchstart", onEvade, { passive: false });
+            btn.addEventListener("touchmove", onEvade, { passive: false });
+            btn.addEventListener("pointerdown", onEvade);
+            btn.addEventListener("mouseenter", onEvade);
+            btn.addEventListener("click", onEvade);
+        }
+
+        if (loveMaybeBtn) setupLoveEvasive(loveMaybeBtn);
+        if (loveNoBtn) setupLoveEvasive(loveNoBtn);
+
+        // Faqat "Ha, albatta!" bosiladi
+        loveYesBtn.addEventListener("click", function () {
+            isLoveConfirmed = true;
+            launchConfettiCelebration();
+
+            if (navigator.vibrate) {
+                try {
+                    navigator.vibrate([60, 40, 80]);
+                } catch (e) {}
+            }
+
+            // 1. Savol blokini yo'qotish
+            loveQuestionSection.classList.add("opacity-0", "scale-95");
+            setTimeout(() => {
+                loveQuestionSection.classList.add("hidden");
+
+                // 2. Bulutlar orasidan "Men ham seni sevaman!" chiqishi
+                cloudRevealSection.classList.remove("hidden");
+                leftCloud.classList.add("anim-cloud-left");
+                rightCloud.classList.add("anim-cloud-right");
+                loveRevealText.classList.remove("opacity-0", "scale-50");
+                loveRevealText.classList.add("anim-love-reveal");
+
+                // Qochib yurgan tugmalarni butunlay to'xtatish
+                loveMaybeBtn.style.display = "none";
+                loveNoBtn.style.display = "none";
+
+                // Yana konfetti
+                launchConfettiCelebration();
+
+                // 3. Orqasidan darrov Uchrashuv Cheki chiqishi
+                setTimeout(() => {
+                    receiptDay.textContent = selectedDay;
+                    receiptPlan.textContent = selectedPlan;
+                    receiptTime.textContent = selectedTime;
+
+                    receiptSection.classList.remove("hidden");
+                    receiptSection.classList.add("anim-receipt");
+                    updateTelegramLink();
+
+                    // Bayramona konfetti
+                    confetti({
+                        particleCount: 60,
+                        spread: 85,
+                        origin: { y: 0.5 },
+                        colors: ["#ec4899", "#f43f5e", "#fbbf24", "#38bdf8"],
+                    });
+                }, 1300);
+            }, 250);
+        });
+
+        function updateTelegramLink() {
+            const message = `Salom! ✨ Uchrashuv rejamiz va sevgimiz rasman tasdiqlandi 🥰\n\n🧾 UCHRASHUV CHEKI:\n🌸 Kimga: Mening Madinam\n🗓 Kun: ${selectedDay}\n🍽 Reja: ${selectedPlan}\n⏰ Vaqt: ${selectedTime}\n❤️ Muhabbat darajasi: Cheksiz (100%) ♾️\n\nMen ham seni juda qattiq yaxshi ko'raman! 💖✨`;
+            const encodedMsg = encodeURIComponent(message);
+            telegramSubmitBtn.href = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMsg}`;
+        }
+
+        updateTelegramLink();
+    </script>
+</body>
+
+</html>
